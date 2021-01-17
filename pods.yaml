@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: node-js-pod 
+spec: 
+  containers: 
+  - name: node-js 
+    image: bitnami/apache:latest 
+    ports: 
+    - containerPort: 80
+  - name: file-puller
+    image: file-puller:latest
