@@ -27,7 +27,7 @@ kubectl describe service web-service
 
 vs.
 
-```
+```yml
 apiVersion: v1
 kind: Pod
 metadata:
