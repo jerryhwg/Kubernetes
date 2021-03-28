@@ -22,6 +22,12 @@
 
 ### [dns](dns.md)
 
+### [HPA](hpa.md)
+
+### [Ingress](simplek8s/ingress.md)
+
+### [json path](json_path.md)
+
 ### [label selector](label_selector.md)
 
 ### [liveness & readiness probe](liveness_readiness.md)
