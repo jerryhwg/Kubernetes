@@ -1,4 +1,32 @@
-# Configmap
+# ConfigMap
+
+## ENV vs. ConfigMap
+
+```yaml
+env:
+    - name: APP_COLOR
+      value: pink
+```
+
+ConfigMap
+
+```yaml
+env:
+    - name: APP_COLOR
+      valueFrom:
+        configMapKeyRef:
+```
+
+Secret
+
+```yaml
+env:
+    - name: APP_COLOR
+      valueFrom:
+        secretKeyRef:
+```
+
+## ConfigMap
 
 imperative # 1
 

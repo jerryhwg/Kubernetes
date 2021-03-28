@@ -1,4 +1,56 @@
-# Liveness and Readiness Probe
+# Liveness and Readiness Probe (Observability)
+
+## Readiness Probes
+
+when pos is created and start, it determines it's indeed ready
+
+http test - /api/ready
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+    name: simple-webapp
+    labels:
+        name: simple-webapp
+spec:
+    containers:
+    - name: simple-webapp
+      image: simple-webapp
+      ports:
+        - containerPort: 8080
+      readinessProbe:
+        httpGet:
+            path: /api/ready
+            port: 8080
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        failureThreshold: 8
+```
+
+tcp test - 3306
+
+```yaml
+readinessProbe:
+    tcpSocket:
+        port: 3306
+```
+
+Exec command
+
+```yaml
+readinessProbe:
+    exec:
+        command:
+            - cat
+            - /app/is_ready
+```
+
+## Liveness Probes
+
+Check container (app) health status
+
+## Appendix
 
 The **liveness probes** are to check if the container is started and alive. If this isn’t the case, kubernetes will eventually restart the container.
 
