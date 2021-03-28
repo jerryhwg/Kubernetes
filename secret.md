@@ -90,6 +90,5 @@ View secrets
 
 ```bash
 kubectl get secrets
-
 kubectl describe secrets
 ```
