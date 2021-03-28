@@ -117,7 +117,7 @@ spec:
             name: app-config
 ```
 
-injecting configmap in pods # 2
+injecting configmap in pods # 2 (primary)
 
 ```yaml
 env:

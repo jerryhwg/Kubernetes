@@ -66,7 +66,7 @@ envFrom:
         name: app-secret
 ```
 
-option # 2
+option # 2 (primary)
 
 ```yaml
 env:
@@ -77,7 +77,7 @@ env:
             key: DB_Password
 ```
 
-option # 3
+option # 3 (using volume)
 
 ```yaml
 volumes:
