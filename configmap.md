@@ -137,8 +137,6 @@ volumes:
     name: app-config
 ```
 
-`NOTE`: Only the **key** will come from **gitConfigmap** in **values file** `values.yaml` and conducktor will use values from [configmap](_configmapV2.yaml) that rendered **.Values.gitConfigmaps**.
-
 view configmaps
 
 ```bash
