@@ -128,7 +128,7 @@ env:
             key: APP_COLOR
 ```
 
-injecting configmap in pods # 3
+injecting configmap in pods # 3 (using volume)
 
 ```yaml
 volumes:
@@ -137,13 +137,12 @@ volumes:
     name: app-config
 ```
 
-> NOTE: Only the key will come from gitConfigmap in values file `values.yaml` and conducktor will use values from configmap.
+`NOTE`: Only the **key** will come from **gitConfigmap** in **values file** `values.yaml` and conducktor will use values from [configmap](_configmapV2.yaml) that rendered **.Values.gitConfigmaps**.
 
 view configmaps
 
 ```bash
 kubectl get configmaps
-
 kubectl describe configmaps
 ```
 
