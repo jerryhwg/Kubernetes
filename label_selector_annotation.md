@@ -1,10 +1,12 @@
-# Labels and Selectors
+# Labels and Selectors and Annotations
 
-labels
+## Labels and Selectors
 
-selectors: filter
+labels to group
 
-pod-definition.yaml
+selectors: help filter
+
+Pod `pod-definition.yaml`
 
 ```yaml
 apiVersion: v1
@@ -23,7 +25,11 @@ spec:
         - containerPort: 8080
 ```
 
-replicaset-definition.yaml
+```bash
+kubectl get pods --selector app=App1
+```
+
+ReplicaSet `replicaset-definition.yaml`
 
 ```yaml
 apiVersion: apps/v1
@@ -51,7 +57,11 @@ spec:
               image: simple-webapp
 ```
 
-service-definition.yaml
+label under template section -> pod label
+label in the top -> replicaset label
+selector matchLabel -> connect replicaset to pods
+
+Service `service-definition.yaml`
 
 ```yaml
 apiVersion: v1
@@ -66,3 +76,7 @@ spec:
       port: 80
       targetPort: 9376
 ```
+
+selector -> connect service to pods
+
+## Annotations

@@ -28,7 +28,7 @@
 
 ### [json path](json_path.md)
 
-### [label selector](label_selector.md)
+### [label selector annotation](label_selector_annotation.md)
 
 ### [liveness & readiness probe](liveness_readiness.md)
 
@@ -43,6 +43,8 @@
 ### [rolling update](rollingUpdate.md)
 
 ### [secret](secret.md)
+
+### [security](secret.md)
 
 ### [taint tolerance](taint_toleration.md)
 
