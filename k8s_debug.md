@@ -1,5 +1,55 @@
 # Kubernetes Troubleshooting
 
+## Key troubleshooting commands
+
+to fetch details about pods
+
+```bash
+kubectl describe pod ${POD_NAME}
+```
+
+```bash
+kubectl get pod ${POD_NAME} -o yaml
+
+kubectl get pod ${POD_NAME} -o json
+```
+
+log
+
+```bash
+kubectl logs ${POD_NAME}
+
+kubectl logs ${POD_NAME} -f
+
+kubectl logs --previous ${POD_NAME}
+```
+
+shell into
+
+```bash
+kubectl exec --stdin --tty ${POD_NAME} -- /bin/bash
+
+kubectl exec -it ${POD_NAME} -- sh
+
+kubectl exec ${POD_NAME} env
+
+kubectl exec ${POD_NAME} -- ls /
+
+kubectl exec ${POD_NAME} -- cat /var/log/syslog
+```
+
+cluster event
+
+```bash
+kubectl get events
+
+kubectl get events --namespace <namespace-name> --sort-by='{.lastTimestamp}'
+```
+
+## Advanced techniques
+
+TBD
+
 ## Application Issue
 
 Check web service (front-end) accessible using curl
@@ -104,7 +154,7 @@ If not ready
 kubectl describe node worker1
 ```
 troubleshooting kubelet status, node os level
-> Out of Disk, MemoryPressure,DiskPressuer,PIDPressure flag True or False
+> Out of Disk, MemoryPressure,DiskPressure,PIDPressure flag True or False
 
 > Unknown: lost communication from control plane, possible loss of a node
 * Check lastHeartbeatTime

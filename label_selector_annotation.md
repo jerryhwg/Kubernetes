@@ -57,9 +57,19 @@ spec:
               image: simple-webapp
 ```
 
-label under template section -> pod label
-label in the top -> replicaset label
-selector matchLabel -> connect replicaset to pods
+`Guide`
+
+* `label` under template section -> `pod` label
+* `label` in the top -> `replicaset` label
+* selector `matchLabel` -> connect replicaset (or deployment) to pods
+
+`NOTE`
+
+1. Service `selector` should match the pod's `label` (under template:)
+2. Service `targetPort` should match the `containerPort` of the Pod
+3. Service `port` can be any number (because they use different IP addresses assigned)
+4. The `service.port` of the Ingress should match the `port` of the Service
+5. The `service.name` of the Ingress should match the `name` of the Service
 
 Service `service-definition.yaml`
 
