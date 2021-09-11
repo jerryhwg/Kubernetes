@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
-labels:
-  tags.datadoghq.com/env: "dev"
-  tags.datadoghq.com/version: "1.0"
 metadata:
   name: client-deployment
+  labels:
+    tags.datadoghq.com/env: "dev"
+    tags.datadoghq.com/version: "1.0"
   annotations:
     ad.datadoghq.com/web.logs: '[{"source":"web","service":"web"}]'
 spec:
@@ -30,12 +30,10 @@ spec:
             - name: DD_ENV
               valueFrom:
                 fieldRef:
-                  fieldPath:
-metadata.labels['tags.datadoghq.com/env']
-        - name: DD_VERSION
-          valueFrom:
-            fieldRef:
-              fieldPath:
-metadata.labels['tags.datadoghq.com/version']
-        - name: DD_LOGS_INJECTION
-          value: "true"
+                  fieldPath: metadata.labels['tags.datadoghq.com/env']
+            - name: DD_VERSION
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['tags.datadoghq.com/version']
+            - name: DD_LOGS_INJECTION
+              value: "true"
