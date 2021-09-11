@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-deployment
+  annotations:
+    ad.datadoghq.com/web.logs: '[{"source":"web","service":"web"}]'
 spec:
   replicas: 1
   selector:
@@ -13,7 +15,7 @@ spec:
         component: web
     spec:
       containers:
-        - name: client
+        - name: web
           image: jerryhwang72/simpleweb
           ports:
             - containerPort: 8080
