@@ -6,6 +6,7 @@ WORKDIR /usr/app
 # Install some depenendencies
 COPY ./package.json ./
 RUN npm install
+RUN npm install --save dd-trace
 COPY ./ ./
 
 # Default command
