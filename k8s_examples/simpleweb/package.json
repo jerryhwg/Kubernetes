@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "*"
+  },
+  "scripts": {
+    "start": "node --require dd-trace/init index.js"
+  }
+}
