@@ -1,2 +1,4 @@
 k8s_examples/.DS_Store
 k8s_examples/simpleweb/.DS_Store
+*.node
+node_modules
