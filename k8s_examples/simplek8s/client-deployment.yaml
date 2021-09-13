@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: client-deployment
+  name: client-deployment # deployment name
 spec:
-  replicas: 1
+  replicas: 1 # number of pods
   selector:
     matchLabels:
-      component: web
-  template:
+      component: web # match labels in template
+  template: # for every single pod in this deployment
     metadata:
       labels:
-        component: web
+        component: web # match matchLabels in selector
     spec:
       containers:
         - name: client
