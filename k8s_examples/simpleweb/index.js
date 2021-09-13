@@ -1,10 +1,23 @@
 //This line must come before importing any instrumented module.
-// const tracer = require('dd-trace').init();
-
 const tracer = require('dd-trace').init({
   logInjection: true
 });
 
+const express = require('express');
+
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('How are you doing');
+});
+
+app.listen(8080, () => {
+  console.log('Listening on port 8080');
+});
+
+//
+// garbage below
+//
 // const formats = require('dd-trace/ext/formats');
 
 // class Logger {
@@ -22,18 +35,6 @@ const tracer = require('dd-trace').init({
 // }
 
 // module.exports = Logger;
-
-// const express = require('express');
-
-// const app = express();
-
-// app.get('/', (req, res) => {
-//   res.send('How are you doing');
-// });
-
-// app.listen(8080, () => {
-//   console.log('Listening on port 8080');
-// });
 
 // const span = tracer.scope().active()
 
