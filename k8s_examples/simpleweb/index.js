@@ -5,35 +5,35 @@ const tracer = require('dd-trace').init({
   logInjection: true
 });
 
-const formats = require('dd-trace/ext/formats');
+// const formats = require('dd-trace/ext/formats');
 
-class Logger {
-    log(level, message) {
-        const span = tracer.scope().active();
-        const time = new Date().toISOString();
-        const record = { time, level, message };
+// class Logger {
+//     log(level, message) {
+//         const span = tracer.scope().active();
+//         const time = new Date().toISOString();
+//         const record = { time, level, message };
 
-        if (span) {
-            tracer.inject(span.context(), formats.LOG, record);
-        }
+//         if (span) {
+//             tracer.inject(span.context(), formats.LOG, record);
+//         }
 
-        console.log(JSON.stringify(record));
-    }
-}
+//         console.log(JSON.stringify(record));
+//     }
+// }
 
-module.exports = Logger;
+// module.exports = Logger;
 
-const express = require('express');
+// const express = require('express');
 
-const app = express();
+// const app = express();
 
-app.get('/', (req, res) => {
-  res.send('How are you doing');
-});
+// app.get('/', (req, res) => {
+//   res.send('How are you doing');
+// });
 
-app.listen(8080, () => {
-  console.log('Listening on port 8080');
-});
+// app.listen(8080, () => {
+//   console.log('Listening on port 8080');
+// });
 
 // const span = tracer.scope().active()
 
