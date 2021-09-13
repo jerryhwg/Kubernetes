@@ -4,6 +4,7 @@ metadata:
   name: simpleweb
   labels:
     tags.datadoghq.com/env: "dev"
+    tags.datadoghq.com/service: "web"
     tags.datadoghq.com/version: "1.0"
   annotations:
     ad.datadoghq.com/web.logs: '[{"source":"web","service":"web"}]'
@@ -16,6 +17,9 @@ spec:
     metadata:
       labels:
         component: web
+        tags.datadoghq.com/env: "dev"
+        tags.datadoghq.com/service: "web"
+        tags.datadoghq.com/version: "1.0"
     spec:
       containers:
         - name: web
@@ -31,6 +35,10 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.labels['tags.datadoghq.com/env']
+            - name: DD_SERVICE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.labels['tags.datadoghq.com/service']
             - name: DD_VERSION
               valueFrom:
                 fieldRef:
