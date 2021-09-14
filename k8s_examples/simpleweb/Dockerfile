@@ -6,6 +6,7 @@ WORKDIR /usr/app
 # Install some depenendencies
 COPY ./package.json ./
 RUN npm install --save dd-trace
+RUN npm install winston express-winston
 COPY ./ ./
 
 # Default command
