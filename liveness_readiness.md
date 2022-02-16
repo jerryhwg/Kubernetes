@@ -2,7 +2,7 @@
 
 ## Readiness Probes
 
-when pos is created and start, it determines it's indeed ready
+It determines the pod indeed ready, when pod is created and start.
 
 http test - /api/ready
 
