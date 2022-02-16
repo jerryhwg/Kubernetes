@@ -58,7 +58,7 @@ The **`readiness probes`** in turn also check dependencies like database connect
 
 Your current configuration uses a health endpoint which are usually used by liveness probes. It probably doesn’t check if your services is really ready to take traffic.
 
-Kubernetes relies on the readiness probes. During a rolling update, it will keep the old container up and running until the new service declares that it is ready to take traffic. Therefore the readiness probes have to be implemented correctly.
+Kubernetes relies on the readiness probes. **During a rolling update**, it will keep the old container up and running until the new service declares that it is ready to take traffic. Therefore the readiness probes have to be implemented correctly.
 
 NOTE: Liveness probes do not wait for readiness probes to succeed. If you want to wait before executing a liveness probe you should use initialDelaySeconds or a startupProbe.
 
